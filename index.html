@@ -1,0 +1,712 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Eng. Haidy Mahmoud - Network Engineer Portfolio. Experienced in configuring & troubleshooting LAN, WAN, VLAN, OSPF, EIGRP, BGP, Cloud Networking, Cisco & Huawei Technologies."
+    />
+    <meta name="author" content="Haidy Mahmoud" />
+    <title>Haidy Mahmoud | Network Engineer Portfolio</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- Dynamic Network Background Canvas -->
+    <canvas id="networkCanvas"></canvas>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+      <div class="container nav-container">
+        <a href="#home" class="logo-brand">
+          <div class="logo-icon">HM</div>
+          <div class="logo-text">
+            Haidy Mahmoud
+            <span>NETWORK ENGINEER</span>
+          </div>
+        </a>
+
+        <ul class="nav-menu">
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#experience" class="nav-link">Experience</a></li>
+          <li><a href="#certifications" class="nav-link">Certifications</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <!-- Theme Switcher Toggle (Light / Dark) -->
+          <button
+            class="btn-theme-toggle"
+            id="themeToggleBtn"
+            title="Toggle Light / Dark Theme"
+            aria-label="Toggle Theme"
+          >
+            🌙
+          </button>
+
+          <!-- Protected Admin Controls (Hidden for general visitors, visible only when logged in as Admin) -->
+          <div
+            id="adminNavControls"
+            style="display: none; align-items: center; gap: 0.5rem"
+          >
+            <span class="admin-badge">🔑 Admin Mode</span>
+            <button
+              class="btn-control-panel"
+              id="openDrawerBtn"
+              title="Live Edit & Customize Portfolio"
+            >
+              ⚙️ Control Panel
+            </button>
+            <button
+              class="btn-secondary"
+              id="logoutAdminBtn"
+              style="padding: 0.4rem 0.8rem; font-size: 0.8rem"
+              title="Logout Admin Session"
+            >
+              🚪 Logout
+            </button>
+          </div>
+
+          <button
+            class="mobile-toggle"
+            id="mobileToggle"
+            aria-label="Toggle Navigation"
+          >
+            ☰
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero / Home Section -->
+    <section id="home" class="hero-section">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <div class="hero-badge">
+              <span class="badge-dot"></span>
+              Available for Enterprise & Cloud Projects
+            </div>
+            <div class="hero-title-greeting">Hi there, I am</div>
+
+            <!-- Letter-by-letter Typewriter Container for Name -->
+            <div class="hero-title-name" id="heroName">
+              <!-- Dynamically populated letter-by-letter via JS -->
+            </div>
+
+            <div class="hero-subtitle" id="heroTitle">Network Engineer</div>
+
+            <p class="hero-bio" id="heroBio">
+              Motivated Network Engineer with hands-on experience in configuring
+              and troubleshooting LAN, WAN, and VLAN networks. Skilled in
+              routing protocols (OSPF, EIGRP, BGP), enterprise network
+              solutions, and cloud networking (AWS & Azure).
+            </p>
+
+            <div class="hero-cta-group">
+              <a href="#contact" class="btn-primary">
+                <svg
+                  width="18"
+                  height="18"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  />
+                </svg>
+                Get In Touch
+              </a>
+              <a href="#projects" class="btn-secondary">
+                <svg
+                  width="18"
+                  height="18"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                  />
+                </svg>
+                View Projects
+              </a>
+              <button
+                class="btn-secondary"
+                onclick="window.print()"
+                title="Print or Save as PDF"
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2m-14 0v4h12v-4M8 11h.01"
+                  />
+                </svg>
+                Download CV
+              </button>
+            </div>
+
+            <div class="hero-stats">
+              <div class="stat-card">
+                <div class="stat-number">7<span>+</span></div>
+                <div class="stat-label">Certifications</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number">3<span>+</span></div>
+                <div class="stat-label">Enterprise Projects</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number">100<span>%</span></div>
+                <div class="stat-label">Cisco & Huawei Stack</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Profile Image Card Showcase -->
+          <div class="hero-image-wrapper">
+            <div class="profile-card">
+              <div class="profile-image-container">
+                <img
+                  src="assets/images/haidy.jpeg"
+                  alt="Haidy Mahmoud - Network Engineer"
+                  class="profile-img"
+                  id="profileImg"
+                />
+              </div>
+
+              <div class="profile-badge-overlay">
+                <div class="badge-overlay-icon">⚡</div>
+                <div class="badge-overlay-text">
+                  Cisco & Huawei Certified
+                  <span>OSPF • EIGRP • BGP • AWS/Azure</span>
+                </div>
+              </div>
+
+              <!-- Floating Tech Badges -->
+              <div class="floating-badge badge-top-right">
+                <span>🚀</span> Routing & Switching
+              </div>
+              <div class="floating-badge badge-bottom-left">
+                <span>🔒</span> Palo Alto & Security
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About / Professional Summary Section -->
+    <section id="about">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">// Professional Profile</span>
+          <h2 class="section-title">About Me</h2>
+          <p class="section-desc">
+            Engineering resilient, scalable, and secure network infrastructure.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <div class="glass-card">
+            <h3
+              style="
+                font-size: 1.4rem;
+                margin-bottom: 1.25rem;
+                color: var(--primary);
+              "
+            >
+              Summary
+            </h3>
+            <div class="summary-text-box">
+              <p id="summaryText">
+                Motivated Network Engineer with hands-on experience in
+                configuring and troubleshooting LAN, WAN, and VLAN networks.
+                Skilled in routing protocols (OSPF, EIGRP, BGP), enterprise
+                network solutions, and cloud networking (AWS & Azure). Strong
+                knowledge of Cisco and Huawei technologies with proven ability
+                to design scalable and secure infrastructure. Recognized for
+                problem-solving, teamwork, and leadership skills.
+              </p>
+            </div>
+          </div>
+
+          <div class="glass-card">
+            <h3
+              style="
+                font-size: 1.4rem;
+                margin-bottom: 1.25rem;
+                color: var(--accent-teal);
+              "
+            >
+              Quick Info
+            </h3>
+            <div class="info-list">
+              <div class="info-item">
+                <div class="info-icon">📍</div>
+                <div class="info-details">
+                  <label>Location</label>
+                  <span id="contactLocationText">Cairo, Egypt</span>
+                </div>
+              </div>
+              <div class="info-item">
+                <div class="info-icon">✉️</div>
+                <div class="info-details">
+                  <label>Email</label>
+                  <a href="mailto:haidyemera266@gmail.com" class="email-link"
+                    >haidyemera266@gmail.com</a
+                  >
+                </div>
+              </div>
+              <div class="info-item">
+                <div class="info-icon">📞</div>
+                <div class="info-details">
+                  <label>Phone</label>
+                  <a href="tel:01288078867" class="phone-link">01288078867</a>
+                </div>
+              </div>
+              <div class="info-item">
+                <div class="info-icon">🎓</div>
+                <div class="info-details">
+                  <label>Education</label>
+                  <span>El Nahda University | Faculty of CS</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Professional Experience Section -->
+    <section id="experience">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">// Career Journey</span>
+          <h2 class="section-title">Professional Experience</h2>
+          <p class="section-desc">
+            Practical hands-on internships and technical training background.
+          </p>
+        </div>
+
+        <div class="timeline" id="experienceContainer">
+          <!-- Dynamically rendered experience items -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">// Verified Credentials</span>
+          <h2 class="section-title">Certifications & Training</h2>
+          <p class="section-desc">
+            Industry recognized credentials from Huawei, Cisco, Microsoft, and
+            NTI.
+          </p>
+        </div>
+
+        <div class="cert-grid" id="certificationsContainer">
+          <!-- Dynamically rendered certifications -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical & Soft Skills Section -->
+    <section id="skills">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">// Skill Set</span>
+          <h2 class="section-title">Technical Expertise</h2>
+          <p class="section-desc">
+            Comprehensive toolkit spanning network architecture, security
+            protocols, and tools.
+          </p>
+        </div>
+
+        <div class="skills-tabs">
+          <button class="tab-btn active" data-skill-filter="all">
+            All Skills
+          </button>
+          <button class="tab-btn" data-skill-filter="networking">
+            Networking
+          </button>
+          <button class="tab-btn" data-skill-filter="security">
+            Security & Firewalls
+          </button>
+          <button class="tab-btn" data-skill-filter="tools">
+            Tools & Platforms
+          </button>
+          <button class="tab-btn" data-skill-filter="soft">
+            Soft Skills & Languages
+          </button>
+        </div>
+
+        <div class="skills-grid" id="skillsContainer">
+          <!-- Dynamically rendered skill cards -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">// Architecture & Implementations</span>
+          <h2 class="section-title">Featured Projects</h2>
+          <p class="section-desc">
+            Real-world network design, routing configurations, and cloud
+            deployments.
+          </p>
+        </div>
+
+        <div class="projects-grid" id="projectsContainer">
+          <!-- Dynamically rendered project cards -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <div class="container">
+        <div class="glass-card contact-card">
+          <span class="section-tag">// Get In Touch</span>
+          <h2 class="section-title" style="margin-top: 0.5rem">
+            Let's Connect
+          </h2>
+          <p class="section-desc">
+            Open for Network Engineering roles, infrastructure consultancy, and
+            tech collaborations.
+          </p>
+
+          <div class="contact-options">
+            <a href="mailto:haidyemera266@gmail.com" class="contact-tile">
+              <div class="contact-tile-icon">✉️</div>
+              <div class="contact-tile-label">Direct Email</div>
+              <div class="contact-tile-value">haidyemera266@gmail.com</div>
+            </a>
+
+            <a href="tel:01288078867" class="contact-tile">
+              <div class="contact-tile-icon">📞</div>
+              <div class="contact-tile-label">Phone Number</div>
+              <div class="contact-tile-value">01288078867</div>
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/"
+              target="_blank"
+              class="contact-tile"
+            >
+              <div class="contact-tile-icon">🔗</div>
+              <div class="contact-tile-label">LinkedIn Profile</div>
+              <div class="contact-tile-value">linkedin.com/in/</div>
+            </a>
+          </div>
+
+          <div
+            style="
+              display: flex;
+              justify-content: center;
+              gap: 1rem;
+              flex-wrap: wrap;
+            "
+          >
+            <button
+              class="btn-primary"
+              onclick="copyToClipboard('haidyemera266@gmail.com', 'Email')"
+            >
+              Copy Email Address
+            </button>
+            <button
+              class="btn-secondary"
+              onclick="copyToClipboard('01288078867', 'Phone')"
+            >
+              Copy Phone Number
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div
+        class="container"
+        style="
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 0.5rem;
+        "
+      >
+        <p>
+          © 2026 Eng. Haidy Mahmoud — Network Engineer Portfolio. All rights
+          reserved.
+        </p>
+        <a
+          href="#admin"
+          id="footerAdminLink"
+          style="
+            opacity: 0.4;
+            font-size: 0.75rem;
+            text-decoration: none;
+            color: var(--text-subtle);
+            transition: var(--transition-fast);
+          "
+        >
+          🔒 Engineer Portal Login
+        </a>
+      </div>
+    </footer>
+
+    <!-- Admin Password Gateway Modal -->
+    <div class="modal-overlay" id="adminLoginModal">
+      <div class="modal-card" style="max-width: 420px; text-align: center">
+        <div
+          style="
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            background: rgba(56, 189, 248, 0.15);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin: 0 auto 1rem auto;
+          "
+        >
+          🔐
+        </div>
+        <h3
+          style="
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+          "
+        >
+          Engineer Access Gateway
+        </h3>
+        <p
+          style="
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+          "
+        >
+          Enter admin passcode to unlock portfolio live editing and control
+          panel.
+        </p>
+
+        <form id="adminLoginForm" onsubmit="return false;">
+          <div class="form-group" style="text-align: left">
+            <label class="form-label">Admin Passcode</label>
+            <input
+              type="password"
+              class="form-input"
+              id="adminPasscode"
+              placeholder="Enter password (default: haidy2026)"
+              required
+              autocomplete="current-password"
+            />
+          </div>
+
+          <div style="display: flex; gap: 0.75rem; margin-top: 1.5rem">
+            <button
+              type="button"
+              class="btn-secondary"
+              id="closeAdminLoginBtn"
+              style="flex: 1"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              class="btn-primary"
+              id="submitAdminLoginBtn"
+              style="flex: 1"
+            >
+              Unlock Admin
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Slide-Over Live Control Panel Drawer (Interactive Editable Section) -->
+    <div class="control-panel-drawer" id="controlDrawer">
+      <div class="drawer-header">
+        <div class="drawer-title">⚙️ Portfolio Control Panel</div>
+        <button class="drawer-close" id="closeDrawerBtn">✕</button>
+      </div>
+
+      <div class="drawer-tabs">
+        <button class="drawer-tab-btn active" data-tab="tabGeneral">
+          General Info
+        </button>
+        <button class="drawer-tab-btn" data-tab="tabProjects">
+          Projects JSON
+        </button>
+        <button class="drawer-tab-btn" data-tab="tabCerts">
+          Certifications JSON
+        </button>
+        <button class="drawer-tab-btn" data-tab="tabTools">
+          Tools & Export
+        </button>
+      </div>
+
+      <div class="drawer-body">
+        <!-- General Info Tab -->
+        <div class="drawer-tab-content" id="tabGeneral">
+          <div class="form-group">
+            <label class="form-label">Full Name</label>
+            <input type="text" class="form-input" id="editName" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Professional Title</label>
+            <input type="text" class="form-input" id="editTitle" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Email Address</label>
+            <input type="email" class="form-input" id="editEmail" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Phone Number</label>
+            <input type="text" class="form-input" id="editPhone" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Location</label>
+            <input type="text" class="form-input" id="editLocation" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Profile Image Path / URL</label>
+            <input type="text" class="form-input" id="editProfileImg" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Professional Summary</label>
+            <textarea class="form-textarea" id="editSummary"></textarea>
+          </div>
+        </div>
+
+        <!-- Projects Tab -->
+        <div class="drawer-tab-content" id="tabProjects" style="display: none">
+          <div class="form-group">
+            <label class="form-label">Projects JSON Data (Live Edit)</label>
+            <textarea
+              class="form-textarea"
+              id="editProjectsJson"
+              style="
+                height: 300px;
+                font-family: var(--font-code);
+                font-size: 0.8rem;
+              "
+            ></textarea>
+          </div>
+        </div>
+
+        <!-- Certifications Tab -->
+        <div class="drawer-tab-content" id="tabCerts" style="display: none">
+          <div class="form-group">
+            <label class="form-label"
+              >Certifications JSON Data (Live Edit)</label
+            >
+            <textarea
+              class="form-textarea"
+              id="editCertsJson"
+              style="
+                height: 300px;
+                font-family: var(--font-code);
+                font-size: 0.8rem;
+              "
+            ></textarea>
+          </div>
+        </div>
+
+        <!-- Tools Tab -->
+        <div class="drawer-tab-content" id="tabTools" style="display: none">
+          <div class="form-group">
+            <label class="form-label">Quick Visual Inline Editor</label>
+            <p
+              style="
+                font-size: 0.85rem;
+                color: var(--text-muted);
+                margin-bottom: 0.75rem;
+              "
+            >
+              Click below to turn on Visual Click-to-Edit mode. You can click on
+              any text directly on the page to change it!
+            </p>
+            <button
+              class="btn-secondary"
+              id="inlineEditToggle"
+              style="width: 100%"
+            >
+              ✏️ Enable Inline Editing
+            </button>
+          </div>
+
+          <hr
+            style="
+              border: none;
+              border-top: 1px solid rgba(255, 255, 255, 0.1);
+              margin: 1.5rem 0;
+            "
+          />
+
+          <div class="form-group">
+            <label class="form-label">Data Management</label>
+            <div style="display: flex; flex-direction: column; gap: 0.75rem">
+              <button class="btn-secondary" id="exportJsonBtn">
+                📥 Export Portfolio Data (JSON)
+              </button>
+              <button
+                class="btn-secondary"
+                id="resetDataBtn"
+                style="color: #ef4444; border-color: rgba(239, 68, 68, 0.3)"
+              >
+                🔄 Reset to Original CV Data
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="drawer-footer">
+        <button class="btn-primary" id="saveFormBtn" style="flex: 1">
+          💾 Save & Apply Changes
+        </button>
+      </div>
+    </div>
+
+    <!-- JavaScript Main Script -->
+    <script src="js/app.js"></script>
+  </body>
+</html>
